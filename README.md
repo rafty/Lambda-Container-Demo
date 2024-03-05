@@ -4,16 +4,19 @@
 # S3 Streaming ReadWrite Lambda Function
 
 `./NEW_REGISTER_FUNCTION_MYLIB_CONTAINER/`
+
 S3 Streaming read writeを実現するコード  
 
 # From S3 to EFS Streaming Lambda Function
 
 `./NEW_EFS_VPC_FUNCTION_CONTAINER/`
+
 S3 Streaming read し EFSへStreaming Writeするコード  
 
 # AWS CDK
 
 `./NEW_REGISTER_FUNCTION_MYLIB_CONTAINER/`
+
 `./NEW_EFS_VPC_FUNCTION_CONTAINER/`
 
 上記以外のコードは、AWS CDK pythonのコードで、以下のリソースを作成するためのものです。
