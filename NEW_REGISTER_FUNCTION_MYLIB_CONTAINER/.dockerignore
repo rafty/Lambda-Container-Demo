@@ -1,0 +1,5 @@
+# libsディレクトリを除外
+function/libs/
+
+# Dockerfile.mylibを除外
+function/Dockerfile.mylib

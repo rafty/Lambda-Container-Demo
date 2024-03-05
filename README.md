@@ -1,65 +1,33 @@
+# AWS Lambda function container image の デバッグ デモ
 
-# Welcome to your CDK Python project!
 
-You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`demo_stack`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+# S3 Streaming ReadWrite Lambda Function
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+`./NEW_REGISTER_FUNCTION_MYLIB_CONTAINER/`
+S3 Streaming read writeを実現するコード  
 
-This project is set up like a standard Python project.  The initialization process also creates
-a virtualenv within this project, stored under the .venv directory.  To create the virtualenv
-it assumes that there is a `python3` executable in your path with access to the `venv` package.
-If for any reason the automatic creation of the virtualenv fails, you can create the virtualenv
-manually once the init process completes.
+# From S3 to EFS Streaming Lambda Function
 
-To manually create a virtualenv on MacOS and Linux:
+`./NEW_EFS_VPC_FUNCTION_CONTAINER/`
+S3 Streaming read し EFSへStreaming Writeするコード  
 
-```
-$ python3 -m venv .venv
-```
+# AWS CDK
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+`./NEW_REGISTER_FUNCTION_MYLIB_CONTAINER/`
+`./NEW_EFS_VPC_FUNCTION_CONTAINER/`
 
-```
-$ source .venv/bin/activate
-```
+上記以外のコードは、AWS CDK pythonのコードで、以下のリソースを作成するためのものです。
 
-If you are a Windows platform, you would activate the virtualenv like this:
+- AWS Lambda function container image
+- ECR repository
+- EFS
+- S3 bucket
+- Docker Image
 
-```
-% .venv\Scripts\activate.bat
-```
+## 注意事項
 
-Once the virtualenv is activated, you can install the required dependencies.
+### 動作保証
+- デモのために突貫で作成したため動作保証はいたしかねます。
 
-```
-$ pip install -r requirements.txt
-```
-
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
-$ cdk synth
-```
-
-You can now begin exploring the source code, contained in the hello directory.
-There is also a very trivial test included that can be run like this:
-
-```
-$ pytest
-```
-
-To add additional dependencies, for example other CDK libraries, just add to
-your requirements.txt file and rerun the `pip install -r requirements.txt`
-command.
-
-## Useful commands
-
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
-
-Enjoy!
+### Dockerコマンド推奨
+AWS Lambda function container imageのためのDocker Imageを作成する際、 AWS CDKによりDocker Imageを作成しています。通常の使い方とは異なりますので、 Dockerコマンドを使用してDocker Imageを作成することを推奨します。

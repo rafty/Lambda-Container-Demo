@@ -1,0 +1,8 @@
+# ベースイメージとしてLambda用のPythonランタイムを指定
+FROM public.ecr.aws/lambda/python:3.9
+
+# lambda_filesディレクトリの内容をイメージのルートにコピー　/var/task/にコピー
+COPY ./function ./
+
+# Lambda関数のエントリポイントを指定
+CMD ["lambda_function.lambda_handler"]
